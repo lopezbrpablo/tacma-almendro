@@ -1,44 +1,33 @@
 # Modelización de la incidencia de una enfermedad fúngica en almendro
 
-Repositorio de materiales para un informe científico de bioestadística sobre la incidencia de una enfermedad fúngica en hojas de almendro (*Prunus dulcis*) en función de la temperatura, el periodo de humectación y el aislado del patógeno.
+Materiales del estudio de la incidencia de una enfermedad fúngica en hojas de almendro (*Prunus dulcis*) en función de la temperatura, el periodo de humectación y el aislado del patógeno.
 
-## Autoría y procedencia
+## Autoría
 
-- **Informe de síntesis (octubre de 2026):** Sofía Cerezo y Pablo López.
-- **Trabajo estadístico de referencia (TACMA Caso 1, junio de 2026):** Rafael Casajús, Qihang Chen y Pablo López.
+- **Informe científico (octubre de 2026):** Sofía Cerezo y Pablo López.
+- **Análisis estadístico de referencia, TACMA Caso 1 (junio de 2026):** Rafael Casajús, Qihang Chen y Pablo López.
 
-El informe de síntesis se basa en un análisis previo; no supone que los modelos se hayan reajustado durante la elaboración del informe. Se distinguirán siempre los resultados originales de cualquier análisis adicional que se realice posteriormente.
+## Estudio
 
-## Datos y enfoque estadístico
+El experimento se desarrolló bajo condiciones controladas de temperatura (5–35 °C) y humectación (6–72 h), con dos aislados del patógeno y distintas réplicas experimentales. La incidencia observada se calcula como la proporción de hojas dañadas respecto al total de hojas evaluadas por planta.
 
-La unidad observacional es la planta. Se dispone del número de hojas dañadas (`damaged_leaves`) y del total de hojas evaluadas (`total_leaves`); su cociente define la incidencia observada. Las principales variables explicativas son la temperatura (`temp`), la humectación (`wet`), el aislado (`isol`) y la réplica experimental (`replicate`).
+El análisis incluye modelos binomiales y beta-binomiales, efectos no lineales de temperatura, interacciones con el periodo de humectación, diagnósticos de residuos, validación cruzada y una comparación bayesiana.
 
-El análisis de referencia compara modelos binomiales y beta-binomiales, contempla relaciones no lineales e interacciones, utiliza diagnósticos de residuos y validación cruzada, e incluye una comparación bayesiana mediante JAGS.
+## Contenido del repositorio
 
-## Organización
+| Directorio | Contenido |
+|---|---|
+| [`datos/`](datos/) | Conjunto de datos experimental `caso1.RData`. |
+| [`codigo/`](codigo/) | Código R y JAGS correspondiente al análisis estadístico. |
+| [`figuras/`](figuras/) | Siete figuras del análisis, identificadas según la numeración del TACMA original. |
+| [`informe/`](informe/) | Informe científico en LaTeX y su versión PDF, cuando se incorpore la versión definitiva. |
 
-```text
-tacma-almendro/
-├── README.md
-├── datos/       # Datos originales
-├── codigo/      # Scripts R y modelos JAGS, pendientes de incorporar
-├── figuras/     # Figuras generadas a partir del análisis
-├── informe/     # Fuente LaTeX e informe final
-└── .gitignore
-```
+El informe científico se entrega en formato PDF a través del aula virtual. Este repositorio reúne los materiales asociados al estudio y se referencia desde dicho documento.
 
-## Estado de reproducibilidad
+## Herramientas
 
-**Repositorio en preparación.** Esta primera versión contiene la estructura y la documentación, pero no incluye todavía el archivo original `caso1.RData`, scripts completos ni resultados reproducidos. No se debe afirmar que el análisis sea reproducible hasta disponer de estos materiales y verificar su ejecución.
+El análisis estadístico utiliza R, con paquetes como `mgcv`, `glmmTMB`, `DHARMa`, `dplyr`, `splines` y `R2jags`, además de JAGS para la modelización bayesiana. La documentación del código se encuentra en [`codigo/README.md`](codigo/README.md).
 
-Para completar el repositorio:
+## Uso y atribución
 
-1. Incorporar los scripts originales de R/JAGS, conservando su autoría y comprobando los derechos de redistribución.
-2. Documentar los paquetes y versiones de R usados.
-3. Decidir si el fichero de datos se puede distribuir; si no, explicar cómo obtenerlo.
-4. Generar y contrastar las figuras y los resultados a partir de una ejecución comprobada.
-5. Exportar el `.tex` vigente desde Overleaf e incorporar el PDF definitivo.
-
-## Licencia y uso de materiales
-
-No se incluye una licencia de código o datos en esta versión inicial. Antes de hacer público el repositorio, comprobar los permisos de difusión de datos, scripts, figuras y materiales realizados por otros coautores.
+La autoría de los materiales se indica en los apartados anteriores. No se ha incorporado una licencia de reutilización al repositorio.
