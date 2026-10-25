@@ -1,5 +1,4 @@
 # TACMA Caso 1 — 03: modelo beta-binomial
-# Transcripción adaptada del anexo A.2.3 (pp. 19-21).
 # Ejecutar desde la raíz del repositorio.
 
 source("codigo/01_preparacion.R")
