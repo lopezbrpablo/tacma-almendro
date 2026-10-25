@@ -1,6 +1,5 @@
-# TACMA Caso 1 — 04: validación cruzada de cinco particiones
-# Transcripción adaptada del anexo A.2.4 (pp. 21-23).
-# Ejecutar desde la raíz del repositorio.
+# TACMA Caso 1 — 04: validación cruzada K-fold, K = 5
+# Ejecutar desde la raíz del repositorio
 
 source("codigo/01_preparacion.R")
 if (!requireNamespace("mgcv", quietly = TRUE)) stop("Instala 'mgcv'.")
