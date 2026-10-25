@@ -20,7 +20,7 @@ El análisis de referencia compara modelos binomiales y beta-binomiales, contemp
 ```text
 tacma-almendro/
 ├── README.md
-├── datos/       # Datos originales, pendientes de autorización para publicarse
+├── datos/       # Datos originales
 ├── codigo/      # Scripts R y modelos JAGS, pendientes de incorporar
 ├── figuras/     # Figuras generadas a partir del análisis
 ├── informe/     # Fuente LaTeX e informe final
