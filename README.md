@@ -20,7 +20,6 @@ El análisis incluye modelos binomiales y beta-binomiales, efectos no lineales d
 | [`datos/`](datos/) | Conjunto de datos experimental `caso1.RData`. |
 | [`codigo/`](codigo/) | Código R y JAGS correspondiente al análisis estadístico. |
 | [`figuras/`](figuras/) | Siete figuras del análisis, identificadas según la numeración del TACMA original. |
-| [`informe/`](informe/) | Informe científico en LaTeX y su versión PDF, cuando se incorpore la versión definitiva. |
 
 El informe científico se entrega en formato PDF a través del aula virtual. Este repositorio reúne los materiales asociados al estudio y se referencia desde dicho documento.
 
