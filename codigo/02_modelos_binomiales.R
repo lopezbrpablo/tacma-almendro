@@ -1,6 +1,5 @@
 # TACMA Caso 1 — 02: modelos binomiales GAM
-# Transcripción adaptada del anexo A.2.2 (pp. 12-19).
-# Ejecutar desde la raíz del repositorio.
+# Ejecutar desde la raíz del repositorio
 
 source("codigo/01_preparacion.R")
 if (!requireNamespace("mgcv", quietly = TRUE)) stop("Instala el paquete 'mgcv'.")
@@ -47,13 +46,13 @@ m1d <- gam(
 print(summary(m1d))
 print(AIC(m1d))
 
-# Las pruebas DHARMa son basadas en simulación; sus p-valores pueden variar.
+# Las pruebas DHARMa son basadas en simulación: sus p_valores pueden variar
 res_m1c <- simulateResiduals(m1c)
 print(testDispersion(res_m1c))
 print(testZeroInflation(res_m1c))
 print(testUniformity(res_m1c))
 
-# Efecto aleatorio adicional para combinación experimental.
+# Efecto aleatorio adicional para combinación experimental
 datos$condID <- interaction(
   datos$isol, datos$replicate, datos$temp, datos$wet,
   drop = TRUE
