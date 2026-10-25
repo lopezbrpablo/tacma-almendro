@@ -1,7 +1,5 @@
 # TACMA Caso 1 — 01: preparación de datos
-# Transcripción adaptada del anexo A.2.1 del TACMA original (p. 12).
 # Ejecutar desde la raíz del repositorio: source("codigo/01_preparacion.R")
-# Requiere datos/caso1.RData, pendiente de incorporar y verificar permisos.
 
 ruta_datos <- file.path("datos", "caso1.RData")
 if (!file.exists(ruta_datos)) {
@@ -25,7 +23,7 @@ if (length(faltantes) > 0L) {
   stop("Faltan columnas: ", paste(faltantes, collapse = ", "))
 }
 
-# Preparación tal como figura en el anexo original.
+# Preparación
 datos$temp <- as.numeric(as.character(datos$temp))
 datos$wet <- as.numeric(as.character(datos$wet))
 datos$isol <- factor(datos$isol)
