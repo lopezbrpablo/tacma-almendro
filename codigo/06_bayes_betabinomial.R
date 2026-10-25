@@ -1,7 +1,5 @@
 # TACMA Caso 1 — 06: formulación bayesiana beta-binomial (JAGS)
-# Transcripción adaptada del anexo A.2.6 (pp. 27-31).
-# Exige instalación independiente de JAGS y el paquete R2jags.
-# MUY IMPORTANTE: reconstruido desde PDF; pendiente de ejecutar y verificar.
+# Exige instalación independiente de JAGS y el paquete R2jags
 
 source("codigo/01_preparacion.R")
 if (!requireNamespace("mgcv", quietly = TRUE)) stop("Instala 'mgcv'.")
@@ -24,7 +22,7 @@ ns_raw <- unname(ns_obj)
 ns_scale <- scale(ns_raw)
 ns_temp <- unname(ns_scale)
 
-# Bases escaladas: interacción específica por aislado.
+# Bases escaladas: interacción específica por aislado
 Z_iref <- unname(ns_temp * datos$wet_c * (1 - isol_num))
 Z_ialt <- unname(ns_temp * datos$wet_c * isol_num)
 X_param <- unname(cbind(1, datos$wet_c, isol_num,
@@ -33,7 +31,7 @@ stopifnot(ncol(X_param) == 4L)
 stopifnot(all(c(nrow(X_param), nrow(ns_temp), nrow(Z_iref),
                 nrow(Z_ialt)) == N))
 
-# Modelo auxiliar para los valores iniciales del muestreador.
+# Modelo auxiliar para los valores iniciales del muestreador
 d_aux <- cbind(
   datos,
   setNames(as.data.frame(ns_temp), paste0("ns", 1:5)),
@@ -60,7 +58,7 @@ idx_ns <- grep("^ns[1-5]$", names(coef_aux))
 idx_ir <- grep("^ir", names(coef_aux))
 idx_ia <- grep("^ia", names(coef_aux))
 
-# Evita iniciar JAGS con coeficientes ausentes por nombres distintos.
+# Evita iniciar JAGS con coeficientes ausentes por nombres distintos
 stopifnot(!anyNA(idx_param), length(idx_ns) == 5L,
           length(idx_ir) == 5L, length(idx_ia) == 5L)
 
