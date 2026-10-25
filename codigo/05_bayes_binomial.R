@@ -1,13 +1,11 @@
 # TACMA Caso 1 — 05: formulación bayesiana binomial (JAGS)
-# Transcripción adaptada del anexo A.2.5 (pp. 23-27).
 # Exige instalación independiente de JAGS y el paquete R2jags.
-# MUY IMPORTANTE: reconstruido desde PDF; pendiente de ejecutar y verificar.
 
 source("codigo/02_modelos_binomiales.R")
 if (!requireNamespace("R2jags", quietly = TRUE)) stop("Instala 'R2jags' y JAGS.")
 library(R2jags)
 
-# Matriz de diseño obtenida del GAM frecuentista.
+# Matriz de diseño obtenida del GAM frecuentista
 datos <- na.omit(datos)
 N <- nrow(datos)
 n_reps <- length(levels(datos$replicate))
@@ -132,6 +130,5 @@ m1c_bayes <- jags(
   verbose = TRUE
 )
 
-# En el PDF aparece por error "roundround"; se corrige por "round".
 print(round(as.data.frame(m1c_bayes$summary[1:55, c(1, 2, 3, 7, 8, 9)]), 2))
 print(m1c_bayes$DIC)
